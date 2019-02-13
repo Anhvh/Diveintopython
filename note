@@ -1,0 +1,4 @@
+# Khi setup nginx làm reserv proxy. 1 ajax/angularjs call api trên môi trường dev thường qua http, tuy nhiên khi deploy lên server và cấu hình 
+htps sẽ có lỗi vì nginx sẽ redirect từ http -> https. Với các trả về là 1 uri từ server là http://[domain]/[page|401|..] cũng sẽ có lỗi
+"ixed Content: This request has been blocked; the content must be served over HTTPS"
+=> để xử lý ta thêm dòng sau vào template html: <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> (This upgrades all http requests to use https)
